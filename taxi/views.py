@@ -56,8 +56,7 @@ class ManufacturerListView(LoginRequiredMixin, generic.ListView):
         name = self.request.GET.get("name")
         if name:
             return queryset.filter(name__icontains=name)
-        else:
-            return queryset
+        return queryset
 
 
 class ManufacturerCreateView(LoginRequiredMixin, generic.CreateView):
@@ -94,8 +93,7 @@ class CarListView(LoginRequiredMixin, generic.ListView):
         model = self.request.GET.get("model")
         if model:
             return self.queryset.filter(model__icontains=model)
-        else:
-            return self.queryset
+        return self.queryset
 
 
 class CarDetailView(LoginRequiredMixin, generic.DetailView):
